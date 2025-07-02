@@ -85,12 +85,9 @@ jobs:
           echo "Ready to deploy: $(ls -lh app.jar)"
 
       - name: Login to Azure
-        uses: azure/login@v2
+        uses: azure/login@v1
         with:
-          client-id: 2525798b-9ac2-48ed-8da2-947cc330567c
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D4552960A0044FECAB62BE95596F7E6F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_86C4C80481F64E818FF15CCBC8C80734 }}
-          client-secret: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
