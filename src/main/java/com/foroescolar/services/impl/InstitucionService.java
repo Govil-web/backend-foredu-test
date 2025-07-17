@@ -26,9 +26,9 @@ public class InstitucionService {
     public InstitucionResponseDto save(InstitucionRequestDto institucionRequestDto) {
 
         Institucion institucion = institucionMapper.toEntity(institucionRequestDto);
-        if(institucionRepository.findByIdentificacion(institucionRequestDto.identificacion())) {
-            throw new DniDuplicadoException("Ya existe una institucion con la identificacion " + institucionRequestDto.identificacion());
-        }
+//        if(institucionRepository.findByIdentificacion(institucionRequestDto.identificacion())) {
+//            throw new DniDuplicadoException("Ya existe una institucion con la identificacion " + institucionRequestDto.identificacion());
+//        }
         institucion.setNivelEducativo(NivelEducativo.valueOf(institucionRequestDto.nivelEducativo()));
         institucionRepository.save(institucion);
         return institucionMapper.toResponseDto(institucion);
